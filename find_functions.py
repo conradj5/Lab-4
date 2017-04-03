@@ -23,6 +23,6 @@ def search(addr, imp):
 seg = SegByName(".idata")
 for head in Heads(SegStart(seg), SegEnd(seg)):
 	for x in XrefsTo(head, 0):
-		if Name(head) in ["strcpy", "sprintf", "strncpy", "wcsncpy", "swprintf", "printf"]:
+		if Name(head) in ["strcpy", "sprintf", "strncpy", "wcsncpy", "swprintf"]:
 			search(x.frm, Name(head))
 			break # if you only want to print output once for each imported funciton use found
